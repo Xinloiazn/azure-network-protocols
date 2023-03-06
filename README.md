@@ -40,16 +40,16 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 </h3>
 </br>
 <p>
-  Create a Resource Group:
+  First, let's create our Resource Group inside our Azure subscription.
 </p>
 <p>
   <img src="https://i.imgur.com/dOAeXqs.png" height="75%" width="100%" alt="Resource Group"/>
 </p>
 <p>
-  Create a Windows virtual machine.
+  Now create your Windows virtual machine. I typically create the VM in (US) East US.
 </p>
 <p>
-  While creating the VM, select the previously created Resource Group and allow it to create a new Virtual Network (Vnet) and Subnet. Make sure to use the password option under the <strong>Administrator Account</strong> section (not seen in image):
+  While creating the VM, select the previously created Resource Group and allow it to create a new Virtual Network (Vnet) and Subnet. Make sure to use the password option under the <strong>Administrator Account</strong> section:
 </p>
 <p>
   <img src="https://i.imgur.com/PHOwjLh.png" height="75%" width="100%" alt="Windows VM"/>
@@ -76,10 +76,10 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 </h3>
 <br />
 <p>
-  Remote into your Windows 10 Virtual Machine, install Wireshark, open it and filter for ICMP traffic only. If you are using a Mac like me, you'll have to download <strong><a href="https://apps.apple.com/us/app/microsoft-remote-desktop/id1295203466?mt=12">Microsoft Remote Desktop</a></strong> from the app store:
+  Remote into your Windows 10 Virtual Machine, install Wireshark, open it and filter for ICMP traffic only.
 </p>
 <p>
-  <img src="https://i.imgur.com/x1K1646.png" height="75%" width="100%" alt="Microsoft Remote Desktop - Mac"/>
+  <img src="https://i.imgur.com/0BsfNiS.jpg" height="75%" width="100%" alt="Microsoft Remote Desktop - Mac"/>
 </p>
 <p>
   Retrieve the private IP address of the Ubuntu VM and attempt to ping it from within the Windows 10 VM. Observe ping requests and replies within WireShark:
@@ -130,7 +130,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <br />
 <br />
 <h3 align="center">
-  And why not observe DHCP Traffic now
+  Next, we're going to observe DHCP Traffic
 </h3>
 <br />
 <p>
@@ -144,7 +144,7 @@ Observe the DHCP traffic appearing in WireShark:
 <br />
 <br />
 <h3 align="center">
-  Let's observe DNS traffic next
+  Let's now observe our DNS traffic next
 </h3>
 <br />
 <p>
@@ -159,14 +159,14 @@ Observe the DHCP traffic appearing in WireShark:
 <br />
 <br />
 <h3 align="center">
-  And finally, we will observe RDP traffic to finish up this tutorial
+  Finally, we will observe RDP traffic to finish up this tutorial
 </h3>
 <br />
 <p>
-  Back in Wireshark, filter for RDP traffic only (tcp.port == 3389).
+  Back in Wireshark, filter for RDP traffic only using "tcp.port==3389".
 </p>
 <p>
-  Oserve the immediate non-stop spam of traffic? Why is it non-stop spamming vs only showing traffic when a command is inputted?
+  You'll be obseving a non-stop stream of traffic. Do you know why there is constant traffic in our tcp.port==3389?
 </p>
 <p>
   The answer is because the RDP (protocol) is constantly showing you a live stream from one computer to another, therefor traffic is always being transmitted:
