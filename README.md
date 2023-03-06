@@ -25,7 +25,8 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>High-Level Steps</h2>
 
-- Create Resources
+- Create a Resource Group
+- Create a Virtual Machine
 - Observe ICMP Traffic
 - Observe SSH Traffic
 - Observe DHCP Traffic
@@ -173,10 +174,6 @@ Observe the DHCP traffic appearing in WireShark:
 </p>
 <p>
   <img src="https://i.imgur.com/hNlhTVp.png" height="75%" width="100%" alt="RDP traffic"/>
-</p>
-<br />
-<br />
-<p>
 </p>
 <p>
   Now that we're finished observing the network, DON'T FORGET TO CLEAN UP YOUR AZURE ENVIRONMENT! This will prevent you from incurring additional charges and you won't be left surprised!
